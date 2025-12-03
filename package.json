@@ -1,0 +1,36 @@
+{
+  "name": "tanssi-chain-registration",
+  "version": "1.0.0",
+  "description": "Scripts to register a chain on Tanssi",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "reserve": "npm run build && node dist/reserveParaId.js",
+    "register-chain": "npm run build && node dist/registerChain.js",
+    "check-status": "npm run build && node dist/checkStatus.js",
+    "dev:reserve": "tsx src/reserveParaId.ts",
+    "dev:register-chain": "tsx src/registerChain.ts",
+    "dev:check-status": "tsx src/checkStatus.ts"
+  },
+  "keywords": [
+    "tanssi",
+    "polkadot",
+    "substrate",
+    "parachain"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@polkadot/api": "^12.0.2",
+    "@polkadot/util": "^13.0.2",
+    "@polkadot/util-crypto": "^13.0.2",
+    "@polkadot/keyring": "^13.0.2",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.4.0"
+  }
+}
