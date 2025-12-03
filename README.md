@@ -37,17 +37,28 @@ npm run register-chain 2000 ./genesis-state ./genesis-wasm
 npm run check-status
 ```
 
-### Development (with tsx for faster execution)
+### Get Block Events
 ```bash
-npm run dev:reserve
-npm run dev:register-chain <paraId> <genesisStatePath> <genesisWasmPath>
-npm run dev:check-status
-```
+npm run get-events <blockHash> [account]
 
+# Examples:
+npm run get-events 0x4839f56e4fbbe7ebe99aadc10455261078730534f088d2e88cd164c15ae7ffc7
+npm run get-events 0x4839f56e4fbbe7ebe99aadc10455261078730534f088d2e88cd164c15ae7ffc7 5Gxxx...
+```
 ## Project Structure
 
 ```
 src/
+├── reserveParaId.ts     # Reserve a ParaId
+├── registerChain.ts     # Register chain with genesis data
+├── checkStatus.ts       # Check parachain status
+├── getBlockEvents.ts    # Get events from a specific block
+├── config/
+│   └── networks.ts      # Network configurations
+└── utils/
+    ├── connection.ts    # Chain connection utilities
+    └── account.ts       # Account management utilities
+```/
 ├── reserveParaId.ts     # Reserve a ParaId
 ├── registerChain.ts     # Register chain with genesis data
 ├── checkStatus.ts       # Check parachain status
