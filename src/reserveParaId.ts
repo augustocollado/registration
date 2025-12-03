@@ -58,30 +58,49 @@ async function reserveParaId(): Promise<void> {
         }
         
         if (status.isFinalized) {
-          console.log(`✓ Transaction finalized: ${status.asFinalized.toHex()}\n`);
+          const blockHash = status.asFinalized.toHex();
+          console.log(`✓ Transaction finalized: ${blockHash}\n`);
           
-          // Look for Reserved event to get ParaId
-          let paraId: number | undefined;
-          
-          events.forEach(({ event }) => {
-            console.log(`Event: ${event.section}.${event.method}`);
+          // Query events from the finalized block to find the reserved ParaId
+          reservationApi.at(blockHash).then(async (apiAt) => {
+            const blockEvents = await apiAt.query.system.events();
             
-            // Check for registrar.Reserved event
-            if (event.section === 'registrar' && event.method === 'Reserved') {
-              const data = event.data.toJSON() as any;
-              paraId = Array.isArray(data) ? data[0] : data.paraId;
-              console.log(`\n🎉 ParaId Reserved: ${paraId}`);
+            // Filter for registrar.Reserved events from this account
+            const reservedEvents = blockEvents.filter(({ event }) => {
+              if (event.section === 'registrar' && event.method === 'Reserved') {
+                // Check if param1 matches our account
+                const accountParam = event.data[1]?.toString();
+                return accountParam === account.address;
+              }
+              return false;
+            });
+            
+            console.log(`Events in block: ${blockEvents.length}`);
+            console.log(`registrar.Reserved events for ${account.address}: ${reservedEvents.length}\n`);
+            
+            if (reservedEvents.length === 0) {
+              reject(new Error('No registrar.Reserved event found for this account in the finalized block'));
+              return;
             }
-          });
-          
-          if (paraId !== undefined) {
+            
+            // Extract ParaId from param0 of the first matching event
+            const event = reservedEvents[0].event;
+            const paraId = event.data[0]?.toString();
+            
+            console.log(`Event: ${event.section}.${event.method}`);
+            event.data.forEach((data, i) => {
+              const type = event.typeDef[i]?.type || 'unknown';
+              console.log(`  ${event.typeDef[i]?.name || `param${i}`} (${type}): ${data.toString()}`);
+            });
+            
+            console.log(`\n🎉 ParaId Reserved (param0): ${paraId}`);
             console.log(`\n=== SUCCESS ===`);
             console.log(`Your reserved ParaId: ${paraId}`);
             console.log(`Network: ${network}`);
-            resolve(paraId);
-          } else {
-            reject(new Error('ParaId not found in transaction events'));
-          }
+            console.log(`Block Hash: ${blockHash}`);
+            
+            resolve(parseInt(paraId, 10));
+          }).catch(reject);
         }
       }).catch(reject);
     });
