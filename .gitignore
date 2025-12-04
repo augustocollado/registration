@@ -8,3 +8,4 @@ specs/container-chain-frontier-node
 specs/container-chain-simple-node
 specs/genesis_state
 specs/genesis_wasm.wasm
+specs/container_chain_template_frontier_runtime.compact.compressed.wasm

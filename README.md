@@ -32,6 +32,23 @@ npm run dev:reserve
 ```
 src/
 ├── reserveParaId.ts     # Reserve a ParaId
+├── register.ts          # Register a parachain with genesis data
+├── config/
+│   └── networks.ts      # Network configurations
+└── utils/
+    ├── connection.ts    # Chain connection utilities
+    └── account.ts       # Account management utilities
+```
+
+## Workflow
+
+1. **Reserve a ParaId**: `npm run reserve`
+2. **Register your parachain**: `npm run register <paraId> <genesisData> <genesisWasm>`
+## Project Structure
+
+```
+src/
+├── reserveParaId.ts     # Reserve a ParaId
 ├── config/
 │   └── networks.ts      # Network configurations
 └── utils/
