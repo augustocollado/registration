@@ -24,14 +24,6 @@ cp .env.example .env
 npm run reserve
 ```
 
-### Register a Chain
-```bash
-npm run register-chain <paraId> <genesisStatePath> <genesisWasmPath>
-
-# Example:
-npm run register-chain 2000 ./genesis-state ./genesis-wasm
-```
-
 ### Check Registration Status
 ```bash
 npm run check-status
@@ -40,7 +32,6 @@ npm run check-status
 ### Development (with tsx for faster execution)
 ```bash
 npm run dev:reserve
-npm run dev:register-chain <paraId> <genesisStatePath> <genesisWasmPath>
 npm run dev:check-status
 ```
 
@@ -49,16 +40,6 @@ npm run dev:check-status
 ```
 src/
 ├── reserveParaId.ts     # Reserve a ParaId
-├── registerChain.ts     # Register chain with genesis data
-├── checkStatus.ts       # Check parachain status
-├── config/
-│   └── networks.ts      # Network configurations
-└── utils/
-    ├── connection.ts    # Chain connection utilities
-    └── account.ts       # Account management utilities
-```/
-├── reserveParaId.ts     # Reserve a ParaId
-├── registerChain.ts     # Register chain with genesis data
 ├── checkStatus.ts       # Check parachain status
 ├── config/
 │   └── networks.ts      # Network configurations
@@ -70,14 +51,7 @@ src/
 ## Workflow
 
 1. **Reserve a ParaId**: `npm run reserve`
-2. **Register your chain**: `npm run register-chain <paraId> <genesisState> <genesisWasm>`
-3. **Check status**: `npm run check-status`/
-├── register.ts          # Main registration script
-├── checkStatus.ts       # Check parachain status
-└── utils/
-    ├── connection.ts    # Chain connection utilities
-    └── account.ts       # Account management utilities
-```
+2. **Check status**: `npm run check-status`
 
 ## Security
 

@@ -7,10 +7,8 @@
   "scripts": {
     "build": "tsc",
     "reserve": "npm run build && node dist/reserveParaId.js",
-    "register-chain": "npm run build && node dist/registerChain.js",
     "check-status": "npm run build && node dist/checkStatus.js",
     "dev:reserve": "tsx src/reserveParaId.ts",
-    "dev:register-chain": "tsx src/registerChain.ts",
     "dev:check-status": "tsx src/checkStatus.ts"
   },
   "keywords": [
