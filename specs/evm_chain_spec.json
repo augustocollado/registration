@@ -1,7 +1,7 @@
 {
   "name": "Frontier Container 4689",
   "id": "frontier_container_4689",
-  "chainType": "Local",
+  "chainType": "Live",
   "bootNodes": [
     "/ip4/127.0.0.1/tcp/30333/p2p/12D3KooWRLK44NpovwR6RJzNrLEebb7VNxzdMmM7nDVaijKQpj5z"
   ],
@@ -13,7 +13,7 @@
     "tokenDecimals": 18,
     "tokenSymbol": "AUGT"
   },
-  "relay_chain": "rococo-local",
+  "relay_chain": "rococo_flashbox_relay_testnet",
   "para_id": 4689,
   "codeSubstitutes": {},
   "genesis": {
