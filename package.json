@@ -8,8 +8,10 @@
     "build": "tsc",
     "reserve": "npm run build && node dist/reserveParaId.js",
     "register": "npm run build && node dist/register.js",
+    "register-with-spec": "npm run build && node dist/registerWithSpec.js",
     "dev:reserve": "tsx src/reserveParaId.ts",
-    "dev:register": "tsx src/register.ts"
+    "dev:register": "tsx src/register.ts",
+    "dev:register-with-spec": "tsx src/registerWithSpec.ts"
   },
   "keywords": [
     "tanssi",
