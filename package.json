@@ -7,9 +7,7 @@
   "scripts": {
     "build": "tsc",
     "reserve": "npm run build && node dist/reserveParaId.js",
-    "check-status": "npm run build && node dist/checkStatus.js",
-    "dev:reserve": "tsx src/reserveParaId.ts",
-    "dev:check-status": "tsx src/checkStatus.ts"
+    "dev:reserve": "tsx src/reserveParaId.ts"
   },
   "keywords": [
     "tanssi",

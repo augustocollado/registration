@@ -22,17 +22,9 @@ cp .env.example .env
 ### Reserve a ParaId
 ```bash
 npm run reserve
-```
 
-### Check Registration Status
-```bash
-npm run check-status
-```
-
-### Development (with tsx for faster execution)
-```bash
+# Or for development (faster):
 npm run dev:reserve
-npm run dev:check-status
 ```
 
 ## Project Structure
@@ -40,18 +32,12 @@ npm run dev:check-status
 ```
 src/
 ├── reserveParaId.ts     # Reserve a ParaId
-├── checkStatus.ts       # Check parachain status
 ├── config/
 │   └── networks.ts      # Network configurations
 └── utils/
     ├── connection.ts    # Chain connection utilities
     └── account.ts       # Account management utilities
 ```
-
-## Workflow
-
-1. **Reserve a ParaId**: `npm run reserve`
-2. **Check status**: `npm run check-status`
 
 ## Security
 
