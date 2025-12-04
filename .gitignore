@@ -4,3 +4,7 @@ node_modules/
 .DS_Store
 dist/
 build/
+specs/container-chain-frontier-node
+specs/container-chain-simple-node
+specs/genesis_state
+specs/genesis_wasm.wasm

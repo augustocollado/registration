@@ -1,20 +1,20 @@
 {
-  "name": "Frontier Container 2000",
-  "id": "frontier_container_2000",
+  "name": "Frontier Container 4689",
+  "id": "frontier_container_4689",
   "chainType": "Local",
   "bootNodes": [
     "/ip4/127.0.0.1/tcp/30333/p2p/12D3KooWRLK44NpovwR6RJzNrLEebb7VNxzdMmM7nDVaijKQpj5z"
   ],
   "telemetryEndpoints": null,
-  "protocolId": "container-chain-2000",
+  "protocolId": "container-chain-4689",
   "properties": {
     "isEthereum": true,
     "ss58Format": 42,
     "tokenDecimals": 18,
-    "tokenSymbol": "UNIT"
+    "tokenSymbol": "AUGT"
   },
   "relay_chain": "rococo-local",
-  "para_id": 2000,
+  "para_id": 4689,
   "codeSubstitutes": {},
   "genesis": {
     "runtimeGenesis": {
@@ -26,19 +26,7 @@
         "balances": {
           "balances": [
             [
-              "0x3cd0a705a2dc65e5b1e1205896baa2be8a07c6e0",
-              1208925819614629174706176
-            ],
-            [
-              "0x773539d4ac0e786233d90a233654ccee26a613d9",
-              1208925819614629174706176
-            ],
-            [
-              "0x798d4ba9baf0064ec19eb4f0a1a45785ae9d6dfc",
-              1208925819614629174706176
-            ],
-            [
-              "0xf24ff3a9cf04c71dbc94d0b566f7a27b94566cac",
+              "0x948725C88e823550f88D7d25cc8360eb9769FcB9",
               1208925819614629174706176
             ]
           ],
@@ -217,14 +205,14 @@
         },
         "migrations": {},
         "parachainInfo": {
-          "parachainId": 2000
+          "parachainId": 4689
         },
         "parachainSystem": {},
         "polkadotXcm": {
           "safeXcmVersion": 5
         },
         "sudo": {
-          "key": "0xf24ff3a9cf04c71dbc94d0b566f7a27b94566cac"
+          "key": "0x948725C88e823550f88D7d25cc8360eb9769FcB9"
         },
         "system": {},
         "transactionPayment": {
