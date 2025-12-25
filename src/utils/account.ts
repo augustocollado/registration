@@ -21,8 +21,6 @@ export async function loadAccount(mnemonic: string): Promise<KeyringPair> {
   const keyring = new Keyring({ type: 'sr25519' });
   const account = keyring.addFromMnemonic(mnemonic);
   
-  console.log(`Loaded account: ${account.address}`);
-  
   return account;
 }
 

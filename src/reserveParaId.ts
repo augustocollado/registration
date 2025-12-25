@@ -23,9 +23,7 @@ async function reserveParaId(): Promise<void> {
     // Flashbox uses orchestrator, others use tanssi
     const reservationApi = network === 'flashbox' && orchestratorApi ? orchestratorApi : tanssiApi;
     const reservationChain = network === 'flashbox' && orchestratorApi ? 'Orchestrator' : 'Tanssi';
-    
-    console.log(`\nUsing ${reservationChain} chain for ParaId reservation`);
-    
+
     // Load account
     const mnemonic = process.env.ACCOUNT_MNEMONIC;
     if (!mnemonic) {
@@ -59,7 +57,6 @@ async function reserveParaId(): Promise<void> {
         
         if (status.isFinalized) {
           const blockHash = status.asFinalized.toHex();
-          console.log(`✓ Transaction finalized: ${blockHash}\n`);
           
           // Query events from the finalized block to find the reserved ParaId
           reservationApi.at(blockHash).then(async (apiAt) => {
@@ -75,9 +72,6 @@ async function reserveParaId(): Promise<void> {
               return false;
             });
             
-            console.log(`Events in block: ${blockEvents.length}`);
-            console.log(`registrar.Reserved events for ${account.address}: ${reservedEvents.length}\n`);
-            
             if (reservedEvents.length === 0) {
               reject(new Error('No registrar.Reserved event found for this account in the finalized block'));
               return;
@@ -87,13 +81,6 @@ async function reserveParaId(): Promise<void> {
             const event = reservedEvents[0].event;
             const paraId = event.data[0]?.toString();
             
-            console.log(`Event: ${event.section}.${event.method}`);
-            event.data.forEach((data, i) => {
-              const type = event.typeDef[i]?.type || 'unknown';
-              console.log(`  ${event.typeDef[i]?.name || `param${i}`} (${type}): ${data.toString()}`);
-            });
-            
-            console.log(`\n🎉 ParaId Reserved (param0): ${paraId}`);
             console.log(`\n=== SUCCESS ===`);
             console.log(`Your reserved ParaId: ${paraId}`);
             console.log(`Network: ${network}`);
