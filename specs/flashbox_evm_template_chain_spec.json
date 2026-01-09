@@ -1,7 +1,7 @@
 {
   "name": "INSERT_YOUR_CHAIN_NAME",
   "id": "flashbox_frontier_container_{INSERT_YOUR_PARA_ID}",
-  "chainType": "Local",
+  "chainType": "Live",
   "bootNodes": [],
   "telemetryEndpoints": null,
   "protocolId": "container-chain-{INSERT_YOUR_PARA_ID}",

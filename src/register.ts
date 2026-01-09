@@ -93,10 +93,9 @@ async function registerParachain(): Promise<void> {
     
     // Read genesis files
     console.log('Reading genesis files...');
-    const genesisData = readFileAsHex(genesisDataPath);
+    const genesisData = readFileSync(resolve(genesisDataPath), 'utf-8').trim();
     const genesisWasm = readFileAsHex(genesisWasmPath);
-    console.log('');
-    
+
     // Create transaction
     const tx = registrationApi.tx.registrar.register(paraId, genesisData, genesisWasm);
     
